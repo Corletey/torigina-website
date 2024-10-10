@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Search, MapPin } from "lucide-react";
-import AOS from 'aos'; // Import AOS
-import 'aos/dist/aos.css'; // Import AOS CSS
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
 
 const clients = [
   "Diagnostic Center Limited, Accra",
@@ -41,7 +41,7 @@ const Clientele = () => {
 
   useEffect(() => {
     AOS.init({
-      duration: 1200, // Extended animation duration for smoother feel
+      duration: 300, // Extended animation duration for smoother feel
       easing: 'ease-out-cubic', // Smooth easing
       once: false, // Animation happens every time you scroll back
       offset: 100, // Trigger animations earlier

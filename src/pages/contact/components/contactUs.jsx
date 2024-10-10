@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Phone, Mail, Clock, Send } from "lucide-react";
-import emailjs from "emailjs-com";
-import AOS from "aos"; // Import AOS
-import "aos/dist/aos.css"; // Import AOS styles
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -11,9 +10,10 @@ const ContactUs = () => {
     email: "",
     message: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    AOS.init(); // Initialize AOS
+    AOS.init();
   }, []);
 
   const handleChange = (e) => {
@@ -23,25 +23,23 @@ const ContactUs = () => {
     });
   };
 
-  const sendEmail = (e) => {
+  const sendEmail = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    emailjs
-      .sendForm(
-        "service_n7gnovk", // Replace with your Service ID from EmailJS
-        "template_2dfjkys", // Replace with your Template ID from EmailJS
-        e.target,
-        "V11IHxwhO3CqdzYbT" // Replace with your User ID from EmailJS
-      )
-      .then(
-        (result) => {
-          alert("Message sent successfully!");
-          window.location.reload();
-        },
-        (error) => {
-          alert("Failed to send message, please try again.");
-        }
-      );
+    try {
+      await mailer.send('ContactFormEmail', formData, {
+        to: 'info@torigina.com',
+        replyTo: formData.email
+      });
+      alert('Email sent successfully!');
+      setFormData({ name: "", phone: "", email: "", message: "" });
+    } catch (error) {
+      console.error('Error sending email:', error);
+      alert('Failed to send email. Please try again later.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -109,9 +107,16 @@ const ContactUs = () => {
                 <button
                   type="submit"
                   className="w-full py-3 px-6 bg-[#CF5D3E] text-white font-semibold rounded-lg shadow-md hover:bg-[#b8452f] transition duration-300 flex items-center justify-center"
+                  disabled={isLoading}
                 >
-                  <Send className="mr-2" size={20} />
-                  Send Message
+                  {isLoading ? (
+                    "Sending..."
+                  ) : (
+                    <>
+                      <Send className="mr-2" size={20} />
+                      Send Message
+                    </>
+                  )}
                 </button>
               </div>
             </form>

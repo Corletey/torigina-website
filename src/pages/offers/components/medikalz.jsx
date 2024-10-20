@@ -1,3 +1,4 @@
+//src/pages/offers/components/medikalz.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Clipboard, Clock, CreditCard, FileText, MapPin, Shield, Stethoscope, Users } from 'lucide-react';

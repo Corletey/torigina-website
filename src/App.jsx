@@ -1,3 +1,4 @@
+//src/App.jsx
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import "./App.css";
 import RootLayout from "./layout/rootLayout";
@@ -9,6 +10,7 @@ import OtherBrands from "./pages/otherProducts"
 import Samsungs from "./pages/samsungProducts";
 import Portfolio from "./pages/medical_Portfolio";
 import Contact from "./pages/contact";
+import NotFoundPage from "./components/404";
 
 function App() {
   const router = createBrowserRouter([
@@ -48,6 +50,10 @@ function App() {
         {
           path: "/contact",
           element: <Contact />
+        },
+        {
+          path: "*", // This is the catch-all route
+          element: <NotFoundPage />
         }
       
       ],

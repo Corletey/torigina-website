@@ -2,7 +2,7 @@ import HeroSection from "./components/hero"
 import About from "./components/about"
 import WhyChooseUs from "./components/why"
 import Services from "./components/services"
-// import Achievements from "./componerafcents/achievements"
+// import Achievements from "./components/achievements"
 import AssociatedBrands from "./components/brands"
 
 

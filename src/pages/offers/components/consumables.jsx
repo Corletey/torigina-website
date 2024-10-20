@@ -1,3 +1,4 @@
+//src/pages/offers/components/consumables.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import XrayImg from '../../../assets/img/xrayfilm.jpg';

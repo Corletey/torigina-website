@@ -12,9 +12,13 @@ import MikronImg from "../../../assets/brands/mikron.jpg";
 import FujifilmImg from "../../../assets/brands/fujifilm.png";
 import AgfaImg from "../../../assets/brands/agfa.png";
 import SamsungDistributor from "../../../assets/img/samsung.webp";
+import MedikalzImg from "../../../assets/brands/medikalz_logo.jpeg";
+import TMImg from "../../../assets/brands/titus_medical.jpeg";
 
 const brands = [
   { name: "Samsung", logo: SamsungDistributor },
+  { name: "Medikalz", logo: MedikalzImg },
+  { name: "Titus Medical", logo: TMImg },
   { name: "Siemens", logo: SiemensImg },
   { name: "Philips Healthcare", logo: PhilipsImg },
   { name: "General Electric", logo: GeImg },

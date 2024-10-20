@@ -1,5 +1,5 @@
+//src/pages/offers/components/refurbishment.jsx
 import React from 'react';
-import { motion } from 'framer-motion';
 
   const Refurbishments = () => {
   return (

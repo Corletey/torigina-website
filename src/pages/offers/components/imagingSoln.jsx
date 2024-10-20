@@ -1,3 +1,4 @@
+//src/pages/offers/components/imagingSoln.jsx
 import React from 'react';
 import { motion } from 'framer-motion';
 import MammoImg from "../../../assets/img/mammography.jpg";

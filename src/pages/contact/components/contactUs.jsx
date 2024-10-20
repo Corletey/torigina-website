@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Phone, Mail, Clock, Send } from "lucide-react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import axios from "axios";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -10,36 +11,59 @@ const ContactUs = () => {
     email: "",
     message: "",
   });
+  const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState("");
 
   useEffect(() => {
     AOS.init();
   }, []);
 
+  const validateForm = () => {
+    let tempErrors = {};
+    if (!formData.name.trim()) tempErrors.name = "Name is required";
+    if (!formData.phone.trim()) tempErrors.phone = "Phone is required";
+    if (!formData.email.trim()) {
+      tempErrors.email = "Email is required";
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      tempErrors.email = "Email is invalid";
+    }
+    if (!formData.message.trim()) tempErrors.message = "Message is required";
+    setErrors(tempErrors);
+    return Object.keys(tempErrors).length === 0;
+  };
+
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
+    }
   };
 
   const sendEmail = async (e) => {
     e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      await mailer.send('ContactFormEmail', formData, {
-        to: 'info@torigina.com',
-        replyTo: formData.email
-      });
-      alert('Email sent successfully!');
-      setFormData({ name: "", phone: "", email: "", message: "" });
-    } catch (error) {
-      console.error('Error sending email:', error);
-      alert('Failed to send email. Please try again later.');
-    } finally {
-      setIsLoading(false);
+    if (validateForm()) {
+      setIsLoading(true);
+      try {
+        const response = await axios.post("https://torigina.onrender.com/api/v1/contact", formData);
+        setSubmitMessage("Message sent successfully!");
+        setFormData({ name: "", phone: "", email: "", message: "" });
+      } catch (error) {
+        console.error('Error sending email:', error);
+        setSubmitMessage("Failed to send message. Please try again later.");
+      } finally {
+        setIsLoading(false);
+      }
     }
+  };
+
+  const clearMessage = () => {
+    setSubmitMessage("");
   };
 
   return (
@@ -66,9 +90,12 @@ const ContactUs = () => {
                     name="name"
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CF5D3E] focus:border-transparent outline-none transition duration-200"
+                    className={`w-full px-4 py-3 border ${
+                      errors.name ? "border-red-500" : "border-gray-300"
+                    } rounded-lg focus:ring-2 focus:ring-[#CF5D3E] focus:border-transparent outline-none transition duration-200`}
                     required
                   />
+                  {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
                 </div>
                 <div>
                   <label className="block text-gray-700 font-medium mb-2">Phone Number *</label>
@@ -77,9 +104,12 @@ const ContactUs = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CF5D3E] focus:border-transparent outline-none transition duration-200"
+                    className={`w-full px-4 py-3 border ${
+                      errors.phone ? "border-red-500" : "border-gray-300"
+                    } rounded-lg focus:ring-2 focus:ring-[#CF5D3E] focus:border-transparent outline-none transition duration-200`}
                     required
                   />
+                  {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                 </div>
               </div>
               <div>
@@ -89,19 +119,26 @@ const ContactUs = () => {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CF5D3E] focus:border-transparent outline-none transition duration-200"
+                  className={`w-full px-4 py-3 border ${
+                    errors.email ? "border-red-500" : "border-gray-300"
+                  } rounded-lg focus:ring-2 focus:ring-[#CF5D3E] focus:border-transparent outline-none transition duration-200`}
                   required
                 />
+                {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
               </div>
               <div>
-                <label className="block text-gray-700 font-medium mb-2">Message</label>
+                <label className="block text-gray-700 font-medium mb-2">Message*</label>
                 <textarea
                   name="message"
                   value={formData.message}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#CF5D3E] focus:border-transparent outline-none transition duration-200"
+                  className={`w-full px-4 py-3 border ${
+                    errors.message ? "border-red-500" : "border-gray-300"
+                  } rounded-lg focus:ring-2 focus:ring-[#CF5D3E] focus:border-transparent outline-none transition duration-200`}
                   rows="4"
+                  required
                 ></textarea>
+                {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
               </div>
               <div>
                 <button
@@ -120,6 +157,16 @@ const ContactUs = () => {
                 </button>
               </div>
             </form>
+            {submitMessage && (
+              <div className={`mt-4 p-4 rounded-lg ${
+                submitMessage.includes("success") ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
+              }`}>
+                <p>{submitMessage}</p>
+                <button onClick={clearMessage} className="mt-2 text-sm underline">
+                  Close
+                </button>
+              </div>
+            )}
           </div>
 
           <div className="col-span-1 space-y-6" data-aos="fade-up" data-aos-duration="600">

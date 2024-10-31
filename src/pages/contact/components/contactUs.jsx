@@ -50,7 +50,7 @@ const ContactUs = () => {
     if (validateForm()) {
       setIsLoading(true);
       try {
-        const response = await axios.post("https://torigina.onrender.com/api/v1/contact", formData);
+        const response = await axios.post("https://torigina-backend.onrender.com/api/v1/contact", formData);
         setSubmitMessage("Message sent successfully!");
         setFormData({ name: "", phone: "", email: "", message: "" });
       } catch (error) {

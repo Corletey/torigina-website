@@ -38,7 +38,7 @@ const RootLayout = () => {
 
   return (
     <>
-      <div className="m-4 p-4">
+      <div className="m-2 p-2">
         <Navbar />
       </div>
       {loading ? (

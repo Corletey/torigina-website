@@ -84,8 +84,8 @@ const Clientele = () => {
               <div
                 key={index}
                 className="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition duration-300 transform hover:-translate-y-1"
-                data-aos="zoom-in" // Subtle zoom-in effect for each card
-                data-aos-delay={index * 50} // Staggered delay for a cascading effect
+                // data-aos="zoom-in" // Subtle zoom-in effect for each card
+                // data-aos-delay={index * 50} // Staggered delay for a cascading effect
               >
                 <MapPin className="text-[#CF5D3E] mb-3" />
                 <h3 className="text-xl font-semibold text-[#0e141b] mb-2">

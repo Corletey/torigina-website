@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import serviceImg from '../../../assets/img/service.png';
 
 const Hero = () => {
   return (
@@ -7,7 +8,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 z-0"
         style={{
-          backgroundImage: 'url("https://cdn.usegalileo.ai/stability/6de86879-d3a4-4e53-83d8-735bd9670c3b.png")',
+          backgroundImage: `url(${serviceImg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           filter: 'brightness(0.7)'

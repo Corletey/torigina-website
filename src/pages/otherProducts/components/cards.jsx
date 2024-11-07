@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import AgfaLogo from "../../../assets/brands/agfa.png";
 import FujifilmLogo from "../../../assets/brands/fujifilm.png";
-import GeLogo from "../../../assets/brands/ge.png";
+import GeLogo from "../../../assets/brands/ge.jpg";
 import MedemLogo from "../../../assets/brands/medem.png";
 import MikronLogo from "../../../assets/brands/mikron.jpg";
 import PhilipsLogo from "../../../assets/brands/philips.png";

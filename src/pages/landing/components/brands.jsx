@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import SiemensImg from "../../../assets/brands/siemens.png";
 import PhilipsImg from "../../../assets/brands/philips.png";
-import GeImg from "../../../assets/brands/ge.png";
+import GeImg from "../../../assets/brands/ge.jpg";
 import MedemImg from "../../../assets/brands/medem.png";
 import MikronImg from "../../../assets/brands/mikron.jpg";
 import FujifilmImg from "../../../assets/brands/fujifilm.png";

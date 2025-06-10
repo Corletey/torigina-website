@@ -16,10 +16,10 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-8 sm:mb-12" data-aos="fade-up">
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            ABOUT TORIGINA GHANA LIMITED
+            ABOUT TORIGINA
           </h2>
           <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto">
-            Torigina Ghana Limited is a leading provider of medical imaging solutions in Ghana and across Africa. Renowned for consistency and quality, we offer a wide range of medical equipment and consumables, focusing on innovative and cost-effective solutions for healthcare facilities. Our mission is to deliver value-driven and efficient medical imaging services at all levels of healthcare.
+            Torigina is a leading provider of medical imaging solutions in Ghana, Nigeria and across Africa. Renowned for consistency and quality, we offer a wide range of medical equipment and consumables, focusing on innovative and cost-effective solutions for healthcare facilities. Our mission is to deliver value-driven and efficient medical imaging services at all levels of healthcare.
           </p>
         </div>
         

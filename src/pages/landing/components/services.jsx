@@ -36,7 +36,7 @@ const Services = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h2 className="text-4xl font-bold text-[#CF5D3E] mb-8" data-aos="fade-up">Our Services</h2>
         <p className="text-lg text-gray-700 mb-12" data-aos="fade-up" data-aos-delay="100">
-          Discover how Torigina Ghana Limited can enhance your healthcare operations with our comprehensive services.
+          Discover how Torigina can enhance your healthcare operations with our comprehensive services.
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service, index) => (

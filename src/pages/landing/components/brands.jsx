@@ -14,6 +14,8 @@ import AgfaImg from "../../../assets/brands/agfa.png";
 import SamsungDistributor from "../../../assets/img/samsung.webp";
 import MedikalzImg from "../../../assets/brands/medikalz_logo.jpeg";
 import TMImg from "../../../assets/brands/titus_medical.jpeg";
+import RSImg from "../../../assets/brands/reapsolutions_logo.jfif";
+import AnalyticonImg from "../../../assets/brands/analyticon-logo.jpg";
 
 const brands = [
   { name: "Samsung", logo: SamsungDistributor },
@@ -26,6 +28,8 @@ const brands = [
   { name: "Mikron", logo: MikronImg },
   { name: "Fujifilm", logo: FujifilmImg },
   { name: "Agfa", logo: AgfaImg },
+  { name: "Reap Solutions", logo: RSImg },
+  { name: "Analyticon", logo: AnalyticonImg },
 ];
 
 const ParticleBackground = () => {

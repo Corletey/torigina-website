@@ -5,6 +5,8 @@ import MedicalConsumables from './components/consumables'
 import Refurbishments from './components/refurbishment'
 import MedikalzServices from './components/medikalz'
 import TitusMedicalPartnership from './components/titus'
+import ReapSolutions from './components/reapSoln'
+import Analyticon from './components/analyticon'
 
 const ServicesPage = () => {
   return (
@@ -14,6 +16,8 @@ const ServicesPage = () => {
         <MedicalConsumables />
         <MedikalzServices />
         <TitusMedicalPartnership />
+        <ReapSolutions />
+        <Analyticon />
         <Refurbishments />
     </div>
   )

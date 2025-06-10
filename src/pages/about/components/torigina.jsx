@@ -43,15 +43,15 @@ const AboutTorigina = () => {
               transition={{ delay: 0.4, duration: 0.8 }}
             >
               <p className="text-lg leading-relaxed">
-                At <span className="font-semibold text-[#CF5D3E]">Torigina Ghana Limited</span>,
+                At <span className="font-semibold text-[#CF5D3E]">Torigina</span>,
                 we're dedicated to revolutionizing healthcare delivery through cutting-edge medical
                 imaging solutions. Our comprehensive portfolio includes state-of-the-art MRI, CT scanners,
                 X-ray machines, and ultrasound systems, addressing diverse healthcare needs across the continent.
               </p>
               <p className="text-lg leading-relaxed">
                 Guided by our core values of integrity, innovation, and customer commitment, we've
-                established ourselves as a trusted partner to leading healthcare institutions. From
-                Komfo Anokye Teaching Hospital to the University of Ghana Medical Center, our impact
+                established ourselves as a trusted partner to leading healthcare institutions. From 
+                the University of Ghana Medical Center to Asi Ukpo Diagnostics in Nigeria, our impact
                 spans across West Africa, elevating the standard of medical care.
               </p>
             </motion.div>

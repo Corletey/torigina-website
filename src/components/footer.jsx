@@ -127,20 +127,13 @@ const Footer = () => {
         {/* Bottom Section */}
         <div className="mt-16 pt-8 border-t border-gray-700/50">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-center md:text-left">
               <p className="text-sm text-gray-500">
                 &copy; {new Date().getFullYear()} <span className="text-[#CF5D3E] font-medium">Torigina</span>. All rights reserved.
               </p>
               <p className="text-xs text-gray-600 mt-1">
                 Empowering technology solutions across West Africa
               </p>
-            </div>
-            
-            <div className="flex items-center space-x-6 text-xs text-gray-500">
-              <Link to="/privacy" className="hover:text-[#CF5D3E] transition-colors">Privacy Policy</Link>
-              <Link to="/terms" className="hover:text-[#CF5D3E] transition-colors">Terms of Service</Link>
-              <Link to="/sitemap" className="hover:text-[#CF5D3E] transition-colors">Sitemap</Link>
-            </div>
+
           </div>
         </div>
       </div>

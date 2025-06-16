@@ -19,7 +19,10 @@ const Preloader = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-white">
+    <div 
+      className="fixed inset-0 flex items-center justify-center bg-white"
+      style={{ zIndex: 9999 }}
+    >
       <div className="text-center">
         <h1 className="text-6xl font-bold text-[#CF5D3E] mb-8 animate-pulse">
           Torigina
